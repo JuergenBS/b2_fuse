@@ -44,6 +44,8 @@ def create_parser():
     parser.add_argument('--use_disk', dest='use_disk', action='store_true')
     parser.set_defaults(use_disk=False)
     
+    parser.add_argument('--nonempty', dest='nonempty', action='store_true')
+    parser.set_defaults(nonempty=False)
     
     parser.add_argument('--debug', dest='debug', action='store_true')
     parser.set_defaults(debug=False)
@@ -115,8 +117,13 @@ def main():
         config["useDisk"] = args.use_disk
     else:
         config["useDisk"] = False
+        
+    if args.nonempty:
+        config["nonempty"] = args.nonempty
+    else:
+        config["nonempty"] = False
 
-    args.options = {} # additional options passed to FUSE
+    args.options = {"nonempty": config["nonempty"]} # additional options passed to FUSE
 
     if args.allow_other:
         args.options['allow_other'] = True
