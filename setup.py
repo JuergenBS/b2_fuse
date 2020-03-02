@@ -22,7 +22,7 @@ setup(
     keywords='',
     author='Sondre Engebraaten',
     packages=find_packages(),
-    install_requires=['b2==1.1.0', 'fusepy==2.0.4', 'PyYAML==5.3'],
+    install_requires=['b2==1.1.0', 'fusepy==3.0.1', 'PyYAML==5.3'],
     include_package_data=True,
     zip_safe=True,
     entry_points={
