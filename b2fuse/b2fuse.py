@@ -78,7 +78,7 @@ def create_parser():
 
 def load_config(config_filename):
     with open(config_filename) as f:
-        return yaml.load(f.read())
+        return yaml.load(f.read(), Loader=yaml.SafeLoader)
 
 def main():
     parser = create_parser()
